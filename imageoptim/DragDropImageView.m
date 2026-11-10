@@ -11,7 +11,7 @@
 @implementation DragDropImageView
 
 - (void)awakeFromNib {
-    [self registerForDraggedTypes:@[ NSFilenamesPboardType ]];
+    [self registerForDraggedTypes:@[ NSPasteboardTypeFileURL ]];
 }
 
 - (BOOL)allowsVibrancy {
@@ -24,6 +24,10 @@
 
 // Destination Operations
 - (NSDragOperation)draggingEntered:(id<NSDraggingInfo>)sender {
+    if (![[sender draggingPasteboard] canReadObjectForClasses:@[[NSURL class]]
+                                                     options:@{NSPasteboardURLReadingFileURLsOnlyKey: @YES}]) {
+        return NSDragOperationNone;
+    }
     highlight = YES;
     [self setNeedsDisplay:YES];
     return NSDragOperationCopy;
@@ -91,8 +95,10 @@
 
 - (BOOL)performDragOperation:(id<NSDraggingInfo>)sender {
     if ([sender draggingSource] != self) {
-        NSArray *files = [[sender draggingPasteboard] propertyListForType:NSFilenamesPboardType];
-        [filesController performSelectorInBackground:@selector(addPaths:) withObject:files];
+        NSArray<NSURL *> *urls = [[sender draggingPasteboard] readObjectsForClasses:@[[NSURL class]]
+                                                                           options:@{NSPasteboardURLReadingFileURLsOnlyKey: @YES}];
+        if (!urls.count) return NO;
+        [filesController performSelectorInBackground:@selector(addURLs:) withObject:urls];
     }
     return YES;
 }

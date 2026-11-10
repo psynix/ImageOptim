@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0274B000000000000000001 /* jpegsrc.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274B000000000000000002 /* jpegsrc.c */; };
+		F0274B000000000000000003 /* jpegmarker.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274B000000000000000004 /* jpegmarker.c */; };
 		5A1663981B529A6100DF7D3C /* jpegdest.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1663971B529A6100DF7D3C /* jpegdest.c */; };
 		5A16639A1B529A8B00DF7D3C /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A1663991B529A8B00DF7D3C /* misc.c */; };
 		5A8167B50EA11E3F00962CF2 /* src/jpegoptim.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A8167840EA11E3F00962CF2 /* src/jpegoptim.c */; };
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F0274B000000000000000002 /* jpegsrc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/jpegsrc.c; sourceTree = "<group>"; };
+		F0274B000000000000000004 /* jpegmarker.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/jpegmarker.c; sourceTree = "<group>"; };
 		5A1663971B529A6100DF7D3C /* jpegdest.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jpegdest.c; path = src/jpegdest.c; sourceTree = "<group>"; };
 		5A1663991B529A8B00DF7D3C /* misc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = misc.c; path = src/misc.c; sourceTree = "<group>"; };
 		5A27BA31139B09080095FC2F /* release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = release.xcconfig; path = ../imageoptim/release.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -86,6 +90,8 @@
 				5A81674F0EA11E3F00962CF2 /* jconfig.h */,
 				5A1663971B529A6100DF7D3C /* jpegdest.c */,
 				5A1663991B529A8B00DF7D3C /* misc.c */,
+				F0274B000000000000000002 /* jpegsrc.c */,
+				F0274B000000000000000004 /* jpegmarker.c */,
 				5A8167840EA11E3F00962CF2 /* src/jpegoptim.c */,
 			);
 			name = jpegoptim;
@@ -192,6 +198,8 @@
 			files = (
 				5A1663981B529A6100DF7D3C /* jpegdest.c in Sources */,
 				5A16639A1B529A8B00DF7D3C /* misc.c in Sources */,
+				F0274B000000000000000001 /* jpegsrc.c in Sources */,
+				F0274B000000000000000003 /* jpegmarker.c in Sources */,
 				5A8167B50EA11E3F00962CF2 /* src/jpegoptim.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -242,6 +250,7 @@
 					"HAVE_GETOPT_H=1",
 					"HAVE_GETOPT_LONG=1",
 					"HAVE_LABS=1",
+					"HAVE_JINT_DC_SCAN_OPT_MODE=1",
 				);
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_SIGN_COMPARE = NO;
@@ -270,6 +279,7 @@
 					"HAVE_GETOPT_H=1",
 					"HAVE_GETOPT_LONG=1",
 					"HAVE_LABS=1",
+					"HAVE_JINT_DC_SCAN_OPT_MODE=1",
 				);
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = NO;
 				GCC_WARN_SIGN_COMPARE = NO;

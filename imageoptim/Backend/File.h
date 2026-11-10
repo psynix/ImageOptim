@@ -37,6 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (readonly) NSURL *path;
 @property (readonly, assign) NSUInteger byteSize;
+@property (readonly, assign) BOOL isAnimatedPNG;
 @property (readonly, nonatomic, nullable) NSString *mimeType;
 
 + (NSInteger)byteSize:(NSURL *)afile;

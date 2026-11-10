@@ -14,7 +14,7 @@
 }
 
 - (NSInteger)settingsIdentifier {
-    return useLossy ? 5 : 6;
+    return useLossy ? 7 : 8;
 }
 
 - (BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
@@ -32,16 +32,9 @@
         temp.path
     ];
 
-    NSFileManager *fm = [NSFileManager defaultManager];
-    NSString *nodePath1 = @"/usr/local/bin/node";
-    NSString *nodePath2 = @"/opt/homebrew/bin/node";
-    NSString *nodePath;
-    if ([fm isExecutableFileAtPath:nodePath1]) {
-        nodePath = nodePath1;
-    } else if ([fm isExecutableFileAtPath:nodePath2]) {
-        nodePath = nodePath2;
-    } else {
-        IOWarn(@"Node not installed at %@", nodePath1);
+    NSString *nodePath = [self nodePath];
+    if (!nodePath) {
+        IOWarn(@"Node.js 16 or later was not found on PATH or in Homebrew's bin directories");
         return NO;
     }
 
@@ -53,6 +46,20 @@
     if (!ok) return NO;
 
     return [job setFileOptimized:[file tempCopyOfPath:temp] toolName:useLossy ? @"SVGO" : @"SVGO lite"];
+}
+
+- (NSString *)nodePath {
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *searchPath = [NSProcessInfo processInfo].environment[@"PATH"] ?: @"";
+    NSArray<NSString *> *directories = [[searchPath componentsSeparatedByString:@":"] arrayByAddingObjectsFromArray:@[@"/opt/homebrew/bin", @"/usr/local/bin"]];
+    for (NSString *directory in directories) {
+        if (!directory.isAbsolutePath) continue;
+        NSString *candidate = [directory stringByAppendingPathComponent:@"node"];
+        if ([fm isExecutableFileAtPath:candidate]) {
+            return candidate;
+        }
+    }
+    return nil;
 }
 
 @end

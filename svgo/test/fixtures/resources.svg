@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="96" height="64" viewBox="0 0 96 64">
+  <defs>
+    <linearGradient id="gradient"><stop stop-color="#ff0000"/><stop offset="1" stop-color="#0000ff"/></linearGradient>
+    <clipPath id="clip"><circle cx="24" cy="32" r="22"/></clipPath>
+    <mask id="mask"><rect width="96" height="64" fill="white"/><circle cx="72" cy="32" r="8" fill="black"/></mask>
+    <symbol id="badge" viewBox="0 0 24 24"><path d="M 0 0 L 24 0 L 12 24 Z" fill="#00cc44"/></symbol>
+  </defs>
+  <rect width="48" height="64" fill="url(#gradient)" clip-path="url(#clip)"/>
+  <use xlink:href="#badge" x="48" y="8" width="48" height="48" mask="url(#mask)"/>
+</svg>

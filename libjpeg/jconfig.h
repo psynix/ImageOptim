@@ -57,6 +57,10 @@
 /* #undef RIGHT_SHIFT_IS_UNSIGNED */
 
 /* Use accelerated SIMD routines. */
+#if defined(__aarch64__)
+#define WITH_SIMD 1
+#else
 #define WITH_SIMD 0
+#endif
 
 #define SIZEOF_SIZE_T 8

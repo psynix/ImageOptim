@@ -1,10 +1,12 @@
 *.mode1v3
 *.pbxuser
 *.xcscheme
+!imageoptim/ImageOptim.xcodeproj/xcshareddata/xcschemes/ImageOptim.xcscheme
 *.xcuserdatad
 *.xcworkspace
 *.zip
 .DS_Store
+**/[0-9]*-*/Xcode/
 .svn
 gifsicle/gifsicle/
 advpng/*.c
@@ -83,6 +85,7 @@ jpegoptim/redhat/jpegoptim.spec
 jpegtran/build
 jpegtran/DerivedData
 jpegtran/jpegtran
+libjpeg/neon-compat.h
 libpng/*-optipng.diff
 libpng/*.3
 libpng/*.c
@@ -151,6 +154,8 @@ zlib/projects
 zlib/qnx
 zlib/README
 zlib/win32
+zlib/*
+!zlib/Makefile
 imageoptim/*.lproj/Help/Help.helpindex
 pngquant/build/*
 pngcrush/Makefile-nolib

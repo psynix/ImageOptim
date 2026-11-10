@@ -1,14 +1,13 @@
 build: all
 
-all: patched
+all: gifsicle/src/gifsicle.c
 
-patched: orig/src
+gifsicle/src/gifsicle.c: orig/src/gifsicle.c Makefile
 	-rm -rf gifsicle
 	cp -R orig gifsicle
-	patch --forward -p1 -d gifsicle < gifsicle-1.89-imageoptim.patch && touch patched
 
-orig/src: ../.gitmodules
-	../scripts/fetch-submodule orig && touch orig/src
+orig/src/gifsicle.c: ../.gitmodules
+	../scripts/fetch-submodule orig && touch orig/src/gifsicle.c
 
 clean:
 	-rm -rf patched gifsicle

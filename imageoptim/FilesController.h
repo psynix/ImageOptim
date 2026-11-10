@@ -5,6 +5,7 @@
 //
 
 @import Cocoa;
+@import UniformTypeIdentifiers;
 
 @class File, ResultsDb, JobProxy;
 extern NSString *const kJobQueueFinished;
@@ -37,7 +38,7 @@ extern NSString *const kJobQueueFinished;
 - (void)updateStoppableState;
 - (NSNumber *)queueCount;
 
-@property (readonly, copy) NSArray *fileTypes;
+@property (readonly, copy) NSArray<UTType *> *contentTypes;
 @property (readonly) BOOL isBusy, isStoppable;
 
 @end

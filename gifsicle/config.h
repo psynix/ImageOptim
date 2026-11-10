@@ -4,6 +4,19 @@
 #ifndef GIFSICLE_CONFIG_H
 #define GIFSICLE_CONFIG_H
 
+/* Supported by Clang on both macOS architectures. */
+#define ENABLE_THREADS 1
+#define HAVE_CBRTF 1
+#define HAVE_EXT_VECTOR_TYPE_VECTOR_TYPES 1
+#define HAVE_SIMD 1
+#define HAVE_SNPRINTF 1
+#define HAVE_STDIO_H 1
+#define HAVE_UINT64_T 1
+#define HAVE_VECTOR_SIZE_VECTOR_TYPES 1
+#define HAVE___BUILTIN_SHUFFLEVECTOR 1
+#define HAVE___SYNC_FETCH_AND_ADD 1
+#define SIZEOF_FLOAT 4
+
 /* Define to the number of arguments to gettimeofday (gifview only). */
 /* #undef GETTIMEOFDAY_PROTO */
 
@@ -68,22 +81,22 @@
 #define PACKAGE "gifsicle"
 
 /* Define to the address where bug reports for this package should be sent. */
-#define PACKAGE_BUGREPORT "pornel@pornel.net"
+#define PACKAGE_BUGREPORT ""
 
 /* Define to the full name of this package. */
 #define PACKAGE_NAME "gifsicle"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "gifsicle 1.88-lossy"
+#define PACKAGE_STRING "gifsicle 1.98"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "gifsicle"
 
 /* Define to the home page for this package. */
-#define PACKAGE_URL "https://pornel.net/lossygif"
+#define PACKAGE_URL "https://www.lcdf.org/gifsicle/"
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "1.88"
+#define PACKAGE_VERSION "1.98"
 
 /* Pathname separator character ('/' on Unix). */
 #define PATHNAME_SEPARATOR '/'
@@ -104,7 +117,7 @@
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "1.88"
+#define VERSION "1.98"
 
 /* Define if X is not available. */
 #define X_DISPLAY_MISSING 1
@@ -148,7 +161,5 @@ char *strerror(int errno);
 # define isatty _isatty
 # define snprintf _snprintf
 #endif
-
-#define GIF_NO_UNOPTIMIZE 1
 
 #endif /* GIFSICLE_CONFIG_H */

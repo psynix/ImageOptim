@@ -51,7 +51,7 @@
             resultsBySettings = [NSMutableDictionary new];
             (job.workersPreviousResults)[[self className]] = resultsBySettings;
         }
-        resultsBySettings[@([self settingsIdentifier])] = @(job.wipInput.byteSize); // FIXME: should be passed in, race condition
+        resultsBySettings[@([self settingsIdentifier])] = @(job.wipInput.byteSize);
     }
 }
 
@@ -61,9 +61,13 @@
     @try {
         if (![self isCancelled]) {
             if (![self canSkip]) {
+                File *input = job.wipInput;
                 [self run];
-                if (![self isCancelled] && !job.isFailed) {
-                    [self markResultForSkipping];
+                @synchronized(job) {
+                    // Another worker may have replaced the input before this one finished.
+                    if (![self isCancelled] && !job.isFailed && job.wipInput == input) {
+                        [self markResultForSkipping];
+                    }
                 }
             } else {
                 IODebug("Skipping %@, because it already optimized %@", [self className], job.fileName);

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64">
+  <title>Animated path</title>
+  <path id="moving" d="M 4.1234567 4.1234567 L 84.1234567 4.1234567 L 44.1234567 54.1234567 Z" fill="#cc2244">
+    <animate attributeName="opacity" values="1;0.5;1" dur="2s" repeatCount="indefinite"/>
+  </path>
+</svg>

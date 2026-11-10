@@ -168,6 +168,7 @@
         [self didChangeValueForKey:@"byteSizeOriginal"];
         lossyConverted = NO;
         [bestTools removeAllObjects];
+        [workersPreviousResults removeAllObjects];
     }
     [self setFileOptimized:initial];
 }
@@ -479,8 +480,9 @@
             [self setError:NSLocalizedString(@"Optimized file could not be saved", @"tooltip")];
         }
     } else {
+        BOOL completed = !stopping && !self.isFailed;
         [self setNooptStatus];
-        if (!stopping && !self.isFailed) {
+        if (completed) {
             [db setUnoptimizableFileHash:inputFileHash size:self.unoptimizedInput.byteSize];
         }
     }
@@ -497,6 +499,7 @@
         self.isDone = NO;
         self.isFailed = NO;
         stopping = NO;
+        [workersPreviousResults removeAllObjects];
         fileIOQueue = aFileIOQueue; // will be used for saving
         workers = [[NSMutableArray alloc] initWithCapacity:10];
         preservePermissions = [defaults boolForKey:@"PreservePermissions"];
@@ -517,8 +520,10 @@
 - (void)setSettingsHash:(NSArray *)allWorkers {
     CC_MD5_CTX md5ctx = {};
     CC_MD5_Init(&md5ctx);
-    CC_MD5_Update(&md5ctx, "3", 1); // to update when programs change
+    CC_MD5_Update(&md5ctx, "5", 1); // to update when programs change
     for (Worker *w in allWorkers) {
+        const char *workerClass = NSStringFromClass([w class]).UTF8String;
+        CC_MD5_Update(&md5ctx, workerClass, (CC_LONG)strlen(workerClass) + 1);
         NSInteger tmp = [w settingsIdentifier];
         CC_MD5_Update(&md5ctx, &tmp, sizeof(tmp));
     }
@@ -573,6 +578,17 @@
 
     switch (input->fileType) {
     case FILETYPE_PNG:
+        if (input.isAnimatedPNG) {
+            // Other PNG tools can discard animation chunks and flatten the image.
+            if (![defs boolForKey:@"OptiPngEnabled"]) {
+                [self setError:NSLocalizedString(@"Enable OxiPNG in Preferences to optimize animated PNGs", @"tooltip")];
+                self.isDone = YES;
+                [self cleanup];
+                return;
+            }
+            [worker_list addObject:[[OxiPngWorker alloc] initWithLevel:level stripMetadata:[defs boolForKey:@"PngOutRemoveChunks"] file:self]];
+            break;
+        }
         if (hasBeenRunBefore) {
             level++;
         }

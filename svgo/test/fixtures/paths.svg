@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64">
+  <title>Static path with optional lossy rounding</title>
+  <path id="precise-path" d="M 4.1234567 4.1234567 L 84.1234567 4.1234567 L 44.1234567 54.1234567 Z" fill="#cc2244"/>
+</svg>

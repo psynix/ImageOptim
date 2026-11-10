@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 64" xml:space="preserve">
+  <title id="text-title">Text and embedded image</title>
+  <desc>Whitespace between spans must remain visible.</desc>
+  <text x="2" y="22" font-family="monospace" font-size="16">A<tspan>B</tspan> <tspan>C</tspan>  D</text>
+  <image id="raster" x="8" y="32" width="24" height="24" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAIAAABLbSncAAAABmJLR0QA/wD/AP+gvaeTAAAAEklEQVQImWP8z4AdMOEQH6QSAM1BAQ/Vh5qrAAAAAElFTkSuQmCC"/>
+</svg>

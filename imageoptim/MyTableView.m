@@ -31,22 +31,22 @@
     FilesController *f = (FilesController *)[self delegate];
 
     NSArray *selected = [f selectedObjects];
-    NSMutableArray *filePaths = [NSMutableArray arrayWithCapacity:[selected count]];
+    NSMutableArray<NSURL *> *fileURLs = [NSMutableArray arrayWithCapacity:[selected count]];
     NSMutableArray *fileNames = [NSMutableArray arrayWithCapacity:[selected count]];
     for (JobProxy *job in selected) {
         assert([job isKindOfClass:[JobProxy class]]);
         NSString *path = job.filePath.path;
         if (path) {
-            [filePaths addObject:path];
+            [fileURLs addObject:job.filePath];
             [fileNames addObject:[path.lastPathComponent stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLPathAllowedCharacterSet]]];
         }
     };
-    if ([filePaths count]) {
+    if (fileURLs.count) {
         NSPasteboard *pboard = [NSPasteboard generalPasteboard];
 
-        [pboard declareTypes:@[ NSFilenamesPboardType, NSStringPboardType ] owner:self];
-        [pboard setPropertyList:filePaths forType:NSFilenamesPboardType];
-        [pboard setString:[fileNames componentsJoinedByString:@"\n"] forType:NSStringPboardType];
+        [pboard clearContents];
+        [pboard writeObjects:fileURLs];
+        [pboard setString:[fileNames componentsJoinedByString:@"\n"] forType:NSPasteboardTypeString];
     }
 }
 
@@ -101,11 +101,9 @@
 - (IBAction)paste:(id)sender {
     NSPasteboard *pboard = [NSPasteboard generalPasteboard];
 
-    NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
-    NSMutableArray *urls = [NSMutableArray arrayWithCapacity:[paths count]];
-    for (NSString *path in paths) {
-        [urls addObject:[NSURL fileURLWithPath:path]];
-    }
+    NSArray<NSURL *> *urls = [pboard readObjectsForClasses:@[[NSURL class]]
+                                                  options:@{NSPasteboardURLReadingFileURLsOnlyKey: @YES}];
+    if (!urls.count) return;
 
     FilesController *f = (FilesController *)[self delegate];
     [f addURLsBelowSelection:urls];
@@ -121,8 +119,8 @@
         return [data respondsToSelector:@selector(base64Encoding)] && [self numberOfSelectedRows] > 0 && [[self filesForDataURI] count] > 0;
     } else if (action == @selector(paste:)) {
         NSPasteboard *pboard = [NSPasteboard generalPasteboard];
-        NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
-        return [paths count] > 0;
+        return [pboard canReadObjectForClasses:@[[NSURL class]]
+                                       options:@{NSPasteboardURLReadingFileURLsOnlyKey: @YES}];
     } else if (action == @selector(selectAll:)) {
         return [self numberOfRows] > 0;
     }

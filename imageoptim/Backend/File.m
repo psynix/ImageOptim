@@ -13,7 +13,7 @@
 
 @implementation File
 
-- (nullable instancetype)initWithType:(enum IOFileType)type size:(NSUInteger)size fromPath:(NSURL *)aPath {
+- (nullable instancetype)initWithType:(enum IOFileType)type size:(NSUInteger)size fromPath:(NSURL *)aPath animatedPNG:(BOOL)animatedPNG {
     if (!size) {
         return nil;
     }
@@ -22,6 +22,7 @@
         _path = aPath;
         _byteSize = size;
         fileType = type;
+        _isAnimatedPNG = animatedPNG;
     }
     return self;
 }
@@ -51,19 +52,38 @@
         type = FILETYPE_SVG;
     }
 
-    return [self initWithType:type size:fileData.length fromPath:aPath];
+    BOOL animatedPNG = NO;
+    if (type == FILETYPE_PNG && fileData.length >= 8) {
+        const unsigned char *bytes = fileData.bytes;
+        NSUInteger offset = 8;
+        while (fileData.length - offset >= 12) {
+            uint32_t chunkLength;
+            memcpy(&chunkLength, bytes + offset, sizeof(chunkLength));
+            chunkLength = CFSwapInt32BigToHost(chunkLength);
+            if (memcmp(bytes + offset + 4, "acTL", 4) == 0) {
+                animatedPNG = YES;
+                break;
+            }
+            if (chunkLength > fileData.length - offset - 12 || memcmp(bytes + offset + 4, "IEND", 4) == 0) {
+                break;
+            }
+            offset += (NSUInteger)chunkLength + 12;
+        }
+    }
+
+    return [self initWithType:type size:fileData.length fromPath:aPath animatedPNG:animatedPNG];
 }
 
 - (nullable File *)copyOfPath:(NSURL *)path {
-    return [[File alloc] initWithType:fileType size:[File byteSize:path] fromPath:path];
+    return [[File alloc] initWithType:fileType size:[File byteSize:path] fromPath:path animatedPNG:self.isAnimatedPNG];
 }
 
 - (nullable File *)copyOfPath:(NSURL *)path size:(NSUInteger)s {
-    return [[File alloc] initWithType:fileType size:s fromPath:path];
+    return [[File alloc] initWithType:fileType size:s fromPath:path animatedPNG:self.isAnimatedPNG];
 }
 
 - (nullable TempFile *)tempCopyOfPath:(NSURL *)path {
-    return [[TempFile alloc] initWithType:fileType size:[File byteSize:path] fromPath:path];
+    return [[TempFile alloc] initWithType:fileType size:[File byteSize:path] fromPath:path animatedPNG:self.isAnimatedPNG];
 }
 
 - (nullable TempFile *)tempCopyOfPath:(NSURL *)path size:(NSUInteger)s {
@@ -75,7 +95,7 @@
         NSLog(@"Expected size %d, but file is actually %d", (int)s, (int)[File byteSize:path]);
         return nil;
     }
-    return [[TempFile alloc] initWithType:fileType size:s fromPath:path];
+    return [[TempFile alloc] initWithType:fileType size:s fromPath:path animatedPNG:self.isAnimatedPNG];
 }
 
 - (BOOL)isLarge {

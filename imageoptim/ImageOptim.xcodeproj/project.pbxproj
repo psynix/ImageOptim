@@ -21,6 +21,12 @@
 		5A2E55881A7C386900985295 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E55861A7C386900985295 /* InfoPlist.strings */; };
 		5A34A634140EEDB900DE44D2 /* DragDropImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34A633140EEDB900DE44D2 /* DragDropImageView.m */; };
 		5A34D0031AEF6DA300A154E4 /* BackendTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5ABE15551AE5072300861C6B /* BackendTests.m */; };
+		F02700000000000000000001 /* PasteboardTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F02700000000000000000002 /* PasteboardTests.m */; };
+		F02700000000000000000003 /* AnimatedPNGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F02700000000000000000004 /* AnimatedPNGTests.m */; };
+		F02700000000000000000005 /* PNGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F02700000000000000000006 /* PNGTests.m */; };
+		F02700000000000000000007 /* JPEGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F02700000000000000000008 /* JPEGTests.m */; };
+		F02700000000000000000009 /* GIFTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0270000000000000000000A /* GIFTests.m */; };
+		F0270000000000000000000B /* SVGTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F0270000000000000000000C /* SVGTests.m */; };
 		5A34D0041AEF6DB300A154E4 /* ImageOptimGPL.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A34CFEE1AEF6D9800A154E4 /* ImageOptimGPL.h */; };
 		5A34D0991AEF75CE00A154E4 /* JobQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A34D0971AEF75CE00A154E4 /* JobQueue.h */; };
 		5A34D09A1AEF75CE00A154E4 /* JobQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A34D0981AEF75CE00A154E4 /* JobQueue.m */; };
@@ -673,6 +679,12 @@
 		5ABE154C1AE5072300861C6B /* BackendTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BackendTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ABE15541AE5072300861C6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5ABE15551AE5072300861C6B /* BackendTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BackendTests.m; sourceTree = "<group>"; };
+		F02700000000000000000002 /* PasteboardTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PasteboardTests.m; sourceTree = "<group>"; };
+		F02700000000000000000004 /* AnimatedPNGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimatedPNGTests.m; sourceTree = "<group>"; };
+		F02700000000000000000006 /* PNGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PNGTests.m; sourceTree = "<group>"; };
+		F02700000000000000000008 /* JPEGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPEGTests.m; sourceTree = "<group>"; };
+		F0270000000000000000000A /* GIFTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIFTests.m; sourceTree = "<group>"; };
+		F0270000000000000000000C /* SVGTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SVGTests.m; sourceTree = "<group>"; };
 		5ABE16D11AE5AD9F00861C6B /* log.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = log.c; path = Backend/log.c; sourceTree = "<group>"; };
 		5ABF610813E37AFC009F6F22 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.plist.strings; name = da; path = da.lproj/PrefsController.strings; sourceTree = "<group>"; };
 		5ABF610913E37B07009F6F22 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/ImageOptim.strings; sourceTree = "<group>"; };
@@ -1054,6 +1066,12 @@
 			children = (
 				5ABE15531AE5072300861C6B /* Supporting Files */,
 				5ABE15551AE5072300861C6B /* BackendTests.m */,
+				F02700000000000000000002 /* PasteboardTests.m */,
+				F02700000000000000000004 /* AnimatedPNGTests.m */,
+				F02700000000000000000006 /* PNGTests.m */,
+				F02700000000000000000008 /* JPEGTests.m */,
+				F0270000000000000000000A /* GIFTests.m */,
+				F0270000000000000000000C /* SVGTests.m */,
 			);
 			name = Tests;
 			path = Backend/Tests;
@@ -1683,6 +1701,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A34D0031AEF6DA300A154E4 /* BackendTests.m in Sources */,
+				F02700000000000000000001 /* PasteboardTests.m in Sources */,
+				F02700000000000000000003 /* AnimatedPNGTests.m in Sources */,
+				F02700000000000000000005 /* PNGTests.m in Sources */,
+				F02700000000000000000007 /* JPEGTests.m in Sources */,
+				F02700000000000000000009 /* GIFTests.m in Sources */,
+				F0270000000000000000000B /* SVGTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2115,6 +2139,7 @@
 		5ABE155D1AE5072300861C6B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -2167,6 +2192,7 @@
 		5ABE155E1AE5072300861C6B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

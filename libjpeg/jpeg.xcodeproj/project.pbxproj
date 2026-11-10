@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F0274A000000000000000001 /* arm/aarch64/jsimd.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A000000000000000002 /* arm/aarch64/jsimd.c */; };
+		F0274A000000000000000003 /* arm/jcgray-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A000000000000000004 /* arm/jcgray-neon.c */; };
+		F0274A000000000000000005 /* arm/jcphuff-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A000000000000000006 /* arm/jcphuff-neon.c */; };
+		F0274A000000000000000007 /* arm/jcsample-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A000000000000000008 /* arm/jcsample-neon.c */; };
+		F0274A000000000000000009 /* arm/jdmerge-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A00000000000000000A /* arm/jdmerge-neon.c */; };
+		F0274A00000000000000000B /* arm/jdsample-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A00000000000000000C /* arm/jdsample-neon.c */; };
+		F0274A00000000000000000D /* arm/jfdctfst-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A00000000000000000E /* arm/jfdctfst-neon.c */; };
+		F0274A00000000000000000F /* arm/jidctred-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A000000000000000010 /* arm/jidctred-neon.c */; };
+		F0274A000000000000000011 /* arm/jquanti-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A000000000000000012 /* arm/jquanti-neon.c */; };
+		F0274A000000000000000013 /* arm/jccolor-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A000000000000000014 /* arm/jccolor-neon.c */; };
+		F0274A000000000000000015 /* arm/jidctint-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A000000000000000016 /* arm/jidctint-neon.c */; };
+		F0274A000000000000000017 /* arm/jidctfst-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A000000000000000018 /* arm/jidctfst-neon.c */; };
+		F0274A000000000000000019 /* arm/aarch64/jchuff-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A00000000000000001A /* arm/aarch64/jchuff-neon.c */; };
+		F0274A00000000000000001B /* arm/jdcolor-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A00000000000000001C /* arm/jdcolor-neon.c */; };
+		F0274A00000000000000001D /* arm/jfdctint-neon.c in Sources */ = {isa = PBXBuildFile; fileRef = F0274A00000000000000001E /* arm/jfdctint-neon.c */; };
 		5A00EF061B4F384C00B5EBA7 /* jsimd_none.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A00EF051B4F384C00B5EBA7 /* jsimd_none.c */; };
 		5A00EF0A1B4F393C00B5EBA7 /* jidctflt.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A00EF091B4F393C00B5EBA7 /* jidctflt.c */; };
 		5A00EF0C1B4F395800B5EBA7 /* jchuff.c in Sources */ = {isa = PBXBuildFile; fileRef = 5A00EF0B1B4F395800B5EBA7 /* jchuff.c */; };
@@ -64,6 +79,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F0274A000000000000000002 /* arm/aarch64/jsimd.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/aarch64/jsimd.c; sourceTree = "<group>"; };
+		F0274A000000000000000004 /* arm/jcgray-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jcgray-neon.c; sourceTree = "<group>"; };
+		F0274A000000000000000006 /* arm/jcphuff-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jcphuff-neon.c; sourceTree = "<group>"; };
+		F0274A000000000000000008 /* arm/jcsample-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jcsample-neon.c; sourceTree = "<group>"; };
+		F0274A00000000000000000A /* arm/jdmerge-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jdmerge-neon.c; sourceTree = "<group>"; };
+		F0274A00000000000000000C /* arm/jdsample-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jdsample-neon.c; sourceTree = "<group>"; };
+		F0274A00000000000000000E /* arm/jfdctfst-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jfdctfst-neon.c; sourceTree = "<group>"; };
+		F0274A000000000000000010 /* arm/jidctred-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jidctred-neon.c; sourceTree = "<group>"; };
+		F0274A000000000000000012 /* arm/jquanti-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jquanti-neon.c; sourceTree = "<group>"; };
+		F0274A000000000000000014 /* arm/jccolor-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jccolor-neon.c; sourceTree = "<group>"; };
+		F0274A000000000000000016 /* arm/jidctint-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jidctint-neon.c; sourceTree = "<group>"; };
+		F0274A000000000000000018 /* arm/jidctfst-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jidctfst-neon.c; sourceTree = "<group>"; };
+		F0274A00000000000000001A /* arm/aarch64/jchuff-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/aarch64/jchuff-neon.c; sourceTree = "<group>"; };
+		F0274A00000000000000001C /* arm/jdcolor-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jdcolor-neon.c; sourceTree = "<group>"; };
+		F0274A00000000000000001E /* arm/jfdctint-neon.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = src/simd/arm/jfdctint-neon.c; sourceTree = "<group>"; };
 		5A00EF051B4F384C00B5EBA7 /* jsimd_none.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jsimd_none.c; path = src/jsimd_none.c; sourceTree = "<group>"; };
 		5A00EF091B4F393C00B5EBA7 /* jidctflt.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jidctflt.c; path = src/jidctflt.c; sourceTree = "<group>"; };
 		5A00EF0B1B4F395800B5EBA7 /* jchuff.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = jchuff.c; path = src/jchuff.c; sourceTree = "<group>"; };
@@ -181,6 +211,21 @@
 				5A0D41F61B4F3629005A19B0 /* jmemmgr.c */,
 				5A0D42111B4F37DC005A19B0 /* jmemnobs.c */,
 				5A00EF051B4F384C00B5EBA7 /* jsimd_none.c */,
+				F0274A000000000000000002 /* arm/aarch64/jsimd.c */,
+				F0274A000000000000000004 /* arm/jcgray-neon.c */,
+				F0274A000000000000000006 /* arm/jcphuff-neon.c */,
+				F0274A000000000000000008 /* arm/jcsample-neon.c */,
+				F0274A00000000000000000A /* arm/jdmerge-neon.c */,
+				F0274A00000000000000000C /* arm/jdsample-neon.c */,
+				F0274A00000000000000000E /* arm/jfdctfst-neon.c */,
+				F0274A000000000000000010 /* arm/jidctred-neon.c */,
+				F0274A000000000000000012 /* arm/jquanti-neon.c */,
+				F0274A000000000000000014 /* arm/jccolor-neon.c */,
+				F0274A000000000000000016 /* arm/jidctint-neon.c */,
+				F0274A000000000000000018 /* arm/jidctfst-neon.c */,
+				F0274A00000000000000001A /* arm/aarch64/jchuff-neon.c */,
+				F0274A00000000000000001C /* arm/jdcolor-neon.c */,
+				F0274A00000000000000001E /* arm/jfdctint-neon.c */,
 				5A0D41F31B4F3600005A19B0 /* jutils.c */,
 			);
 			name = Source;
@@ -316,6 +361,21 @@
 				5A0D41F81B4F3629005A19B0 /* jmemmgr.c in Sources */,
 				5A0D42121B4F37DC005A19B0 /* jmemnobs.c in Sources */,
 				5A00EF061B4F384C00B5EBA7 /* jsimd_none.c in Sources */,
+				F0274A000000000000000001 /* arm/aarch64/jsimd.c in Sources */,
+				F0274A000000000000000003 /* arm/jcgray-neon.c in Sources */,
+				F0274A000000000000000005 /* arm/jcphuff-neon.c in Sources */,
+				F0274A000000000000000007 /* arm/jcsample-neon.c in Sources */,
+				F0274A000000000000000009 /* arm/jdmerge-neon.c in Sources */,
+				F0274A00000000000000000B /* arm/jdsample-neon.c in Sources */,
+				F0274A00000000000000000D /* arm/jfdctfst-neon.c in Sources */,
+				F0274A00000000000000000F /* arm/jidctred-neon.c in Sources */,
+				F0274A000000000000000011 /* arm/jquanti-neon.c in Sources */,
+				F0274A000000000000000013 /* arm/jccolor-neon.c in Sources */,
+				F0274A000000000000000015 /* arm/jidctint-neon.c in Sources */,
+				F0274A000000000000000017 /* arm/jidctfst-neon.c in Sources */,
+				F0274A000000000000000019 /* arm/aarch64/jchuff-neon.c in Sources */,
+				F0274A00000000000000001B /* arm/jdcolor-neon.c in Sources */,
+				F0274A00000000000000001D /* arm/jfdctint-neon.c in Sources */,
 				5A0D41F41B4F3600005A19B0 /* jutils.c in Sources */,
 				5F4975D52ADB4E68005AF7D4 /* jcicc.c in Sources */,
 			);
@@ -352,6 +412,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9E6139B08640095FC2F /* debug.xcconfig */;
 			buildSettings = {
+				"EXCLUDED_SOURCE_FILE_NAMES[arch=arm64]" = jsimd_none.c;
+				"EXCLUDED_SOURCE_FILE_NAMES[arch=x86_64]" = "*-neon.c jsimd.c";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=arm64]" = "$(inherited) NEON_INTRINSICS";
 				ENABLE_TESTABILITY = YES;
 				LD_DYLIB_INSTALL_NAME = "@loader_path/libimageoptimjpeg.dylib";
 				ONLY_ACTIVE_ARCH = YES;
@@ -367,6 +430,9 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5A27B9E5139B08640095FC2F /* release.xcconfig */;
 			buildSettings = {
+				"EXCLUDED_SOURCE_FILE_NAMES[arch=arm64]" = jsimd_none.c;
+				"EXCLUDED_SOURCE_FILE_NAMES[arch=x86_64]" = "*-neon.c jsimd.c";
+				"GCC_PREPROCESSOR_DEFINITIONS[arch=arm64]" = "$(inherited) NEON_INTRINSICS";
 				LD_DYLIB_INSTALL_NAME = "@loader_path/libimageoptimjpeg.dylib";
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = (

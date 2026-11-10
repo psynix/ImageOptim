@@ -1,9 +1,9 @@
 build: all
 
-all: guetzli/src
+all: guetzli/guetzli
 
-guetzli/src: ../.gitmodules
-	../scripts/fetch-submodule guetzli && touch guetzli/src
+guetzli/guetzli: ../.gitmodules
+	../scripts/fetch-submodule guetzli && touch guetzli/guetzli
 
 .PHONY: build all install clean
 

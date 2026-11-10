@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" role="img" aria-labelledby="title description">
+  <title id="title">Accessible colour sample</title>
+  <desc id="description">The first square is blue through an attribute selector.</desc>
+  <!-- editor comment which can be removed -->
+  <style>rect[fill="#ff0000"] { fill: #0044ff; } .outline { stroke: #000; stroke-width: 2; }</style>
+  <rect id="square" class="outline" fill="#ff0000" width="40" height="40" x="4" y="4"/>
+  <circle id="circle" class="outline" fill="#00cc44" r="20" cx="70" cy="24"/>
+  <g id="external-hook"/>
+</svg>

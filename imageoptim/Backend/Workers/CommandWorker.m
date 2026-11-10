@@ -69,7 +69,8 @@
     NSURL *tempPath = [self tempPath];
     @try {
         BOOL keptFile = [self optimizeFile:job.wipInput toTempPath:tempPath];
-        if (keptFile && ![self isCancelled]) {
+        // Accepted output belongs to the job even if cancellation arrived during optimization.
+        if (keptFile) {
             tempPath = nil;
         }
     }

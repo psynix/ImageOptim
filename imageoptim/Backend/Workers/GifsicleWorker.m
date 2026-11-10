@@ -22,6 +22,7 @@
     NSMutableArray *args = [NSMutableArray arrayWithObjects:@"-o",temp.path,
                             interlace ? @"--interlace" : @"--no-interlace",
                             @"-O3",
+                            @"--no-ignore-errors",
                             @"--careful",/* needed for Safari/Preview decoding bug */
                             @"--no-comments",@"--no-names",@"--same-delay",@"--same-loopcount",@"--no-warnings",
                             @"--",file.path,nil];

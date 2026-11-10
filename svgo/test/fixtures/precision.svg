@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1" width="96" height="96">
+  <!-- These fractional values matter because the viewBox magnifies them. -->
+  <rect id="precise" x="0.12345678901234567" y="0.12345678901234567" width="0.54321098765432109" height="0.54321098765432109" fill="red"/>
+</svg>

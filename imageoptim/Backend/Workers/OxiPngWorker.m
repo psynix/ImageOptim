@@ -26,7 +26,7 @@
 -(BOOL)optimizeFile:(File *)file toTempPath:(NSURL *)temp {
 
     NSMutableArray *args = [NSMutableArray arrayWithObjects: [NSString stringWithFormat:@"-o%d",(int)(optlevel ? optlevel : 6)],
-                            @"-i0", @"-a",
+                            @"--interlace", @"off", @"-a",
                             @"--out",temp.path,@"--",file.path,nil];
     if (strip) {
         [args insertObject:@"--strip=safe" atIndex:0];

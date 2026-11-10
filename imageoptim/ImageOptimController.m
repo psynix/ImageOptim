@@ -80,15 +80,9 @@ static const char *kIMPreviewPanelContext = "preview";
 - (void)handleServices:(NSPasteboard *)pboard
               userData:(NSString *)userData
                  error:(NSString **)error {
-    NSArray *paths = [pboard propertyListForType:NSFilenamesPboardType];
-    if (paths && [paths count] > 0) {
-        [filesController performSelectorInBackground:@selector(addPaths:) withObject:paths];
-        return;
-    }
-
-    NSURL *url = [pboard propertyListForType:NSPasteboardTypeFileURL];
-    if (url) {
-        NSArray *urls = @[url];
+    NSArray<NSURL *> *urls = [pboard readObjectsForClasses:@[[NSURL class]]
+                                                  options:@{NSPasteboardURLReadingFileURLsOnlyKey: @YES}];
+    if (urls.count) {
         [filesController performSelectorInBackground:@selector(addURLs:) withObject:urls];
     }
 }
@@ -381,9 +375,10 @@ static void appendFormatNameIfLossyEnabled(NSUserDefaults *defs, NSString *name,
     NSOpenPanel *oPanel = [NSOpenPanel openPanel];
 
     [oPanel setAllowsMultipleSelection:YES];
+    [oPanel setAllowedContentTypes:[filesController contentTypes]];
+    // macOS 27 derives directory selection from content types, so override it afterwards.
     [oPanel setCanChooseDirectories:YES];
     [oPanel setResolvesAliases:YES];
-    [oPanel setAllowedFileTypes:[filesController fileTypes]];
 
     [oPanel beginSheetModalForWindow:[tableView window]
                    completionHandler:^(NSInteger returnCode) {
